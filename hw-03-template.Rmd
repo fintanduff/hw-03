@@ -1,7 +1,7 @@
 ---
 title: "hw-03"
-author: "Your Name (S000000)"
-date: "`r Sys.Date()`"
+author: "Fintan Duff (S2540766)"
+date: "`r Sys.Date(22/11/2023)`"
 output: html_document
 ---
 
@@ -10,6 +10,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(tidymodels)
 ```
 
 
