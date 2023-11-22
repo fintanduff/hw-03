@@ -1,7 +1,7 @@
 ---
 title: "hw-03"
 author: "Fintan Duff (S2540766)"
-date: "`r Sys.Date(22/11/2023)`"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
@@ -59,7 +59,7 @@ gss16_advfront <- gss16_advfront %>%
 ### Re-levelling `polviews`
 
 
-```{marginfigure}
+```#{marginfigure}
 You can do this in various ways. One option is to use the `str_detect()` function to detect the existence of words like liberal or conservative. Note that these sometimes show up with lowercase first letters and sometimes with upper case first letters. To detect either in the `str_detect()` function, you can use "[Ll]iberal" and "[Cc]onservative". But feel free to solve the problem however you like, this is just one option!
 ```
 
@@ -91,19 +91,41 @@ b) Comment on the overall performance of the linear regression model. Support yo
 
 ```{r}
 
-```
+
+
+# Load the dataset if not loaded already
+# Replace 'path_to_your_data_file' with the actual path to your data file
+# gss16_advfront <- read.csv("path_to_your_data_file")
+
+# Fit linear regression model
+model <- lm(emailhr ~ educ, data = gss16_advfront)
+
+# Summary of the regression model
+summary(model)
+
+# Accessing coefficients of the regression model
+coefficients(model)
+
+# Plotting the line of best fit
+plot(gss16_advfront$educ, gss16_advfront$emailhr, 
+     xlab = "Education Level", ylab = "Email Hours",
+     main = "Linear Regression: Email Hours based on Education Level")
+abline(model, col = "red")
+
+
+
 
 ## Exercise 2: Create a workflow to fit a model
 
-In this part, we're going to build a model to predict whether someone agrees or doesn't agree with the following statement:
+#In this part, we're going to build a model to predict whether someone agrees or doesn't agree with the following statement:
 
-Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government.
+#Even if it brings no immediate benefits, scientific research that advances the frontiers of knowledge is necessary and should be supported by the federal government.
 
-The responses to the question on the GSS about this statement are in the `advfront` variable, in the `gss16_advfront` data that you obtained.
+#The responses to the question on the GSS about this statement are in the `advfront` variable, in the `gss16_advfront` data that you obtained.
 
-First, use the following code to split the dataset into a training dataset (`gss16_train`) and a testing dataset (`gss16_test`). This code splits the data into 75\% training and 25\% testing.
+#First, use the following code to split the dataset into a training dataset (`gss16_train`) and a testing dataset (`gss16_test`). This code splits the data into 75\% training and 25\% testing.
 
-```{r split-data}
+```{r split_data}
 set.seed(1234)
 gss16_split <- initial_split(gss16_advfront)
 gss16_train <- training(gss16_split)
