@@ -11,7 +11,7 @@
 
 <meta name="author" content="Fintan Duff (S2540766)" />
 
-<meta name="date" content="2023-11-22" />
+<meta name="date" content="2023-11-23" />
 
 <title>hw-03</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">hw-03</h1>
 <h4 class="author">Fintan Duff (S2540766)</h4>
-<h4 class="date">2023-11-22</h4>
+<h4 class="date">2023-11-23</h4>
 
 </div>
 
@@ -448,34 +448,10 @@ the line-of-best fit and give an interpretation of the
 model. Support your statements with an appropriate data visualisation
 and model fit statistics.</p></li>
 </ol>
-<pre class="r"><code># Load the dataset if not loaded already
-# Replace &#39;path_to_your_data_file&#39; with the actual path to your data file
-# gss16_advfront &lt;- read.csv(&quot;path_to_your_data_file&quot;)
+<pre class="r"><code>model &lt;- lm(emailhr ~ educ, data = gss16_advfront)
 
-# Fit linear regression model
-model &lt;- lm(emailhr ~ educ, data = gss16_advfront)
 
-# Summary of the regression model
-summary(model)</code></pre>
-<pre><code>## 
-## Call:
-## lm(formula = emailhr ~ educ, data = gss16_advfront)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -10.951  -5.838  -4.097   1.532  83.162 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  -2.7573     1.6600  -1.661    0.097 .  
-## educ          0.6854     0.1157   5.924 4.13e-09 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## Residual standard error: 10.86 on 1170 degrees of freedom
-## Multiple R-squared:  0.02912,    Adjusted R-squared:  0.02829 
-## F-statistic: 35.09 on 1 and 1170 DF,  p-value: 4.131e-09</code></pre>
-<pre class="r"><code># Accessing coefficients of the regression model
+# Accessing coefficients of the regression model
 coefficients(model)</code></pre>
 <pre><code>## (Intercept)        educ 
 ##  -2.7573196   0.6854031</code></pre>

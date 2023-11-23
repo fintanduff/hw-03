@@ -93,15 +93,9 @@ b) Comment on the overall performance of the linear regression model. Support yo
 
 
 
-# Load the dataset if not loaded already
-# Replace 'path_to_your_data_file' with the actual path to your data file
-# gss16_advfront <- read.csv("path_to_your_data_file")
 
-# Fit linear regression model
 model <- lm(emailhr ~ educ, data = gss16_advfront)
 
-# Summary of the regression model
-summary(model)
 
 # Accessing coefficients of the regression model
 coefficients(model)
